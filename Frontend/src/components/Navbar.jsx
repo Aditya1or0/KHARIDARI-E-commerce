@@ -16,7 +16,6 @@ const Navbar = () => {
     setToken,
     setCartItems,
   } = useContext(ShopContext);
-
   const [adminUrl, setAdminUrl] = useState("");
 
   useEffect(() => {
@@ -25,8 +24,6 @@ const Navbar = () => {
       setDarkMode(true);
       document.documentElement.classList.add("dark");
     }
-
-    // Set the admin URL only once when the component mounts
     setAdminUrl(import.meta.env.VITE_ADMIN_URL || "");
   }, []);
 
@@ -51,10 +48,6 @@ const Navbar = () => {
     setCartItems({});
     navigate("/login");
     setProfileDropdownVisible(false);
-  };
-
-  const toggleProfileDropdown = () => {
-    setProfileDropdownVisible((prev) => !prev);
   };
 
   return (
@@ -100,9 +93,12 @@ const Navbar = () => {
           alt="Search"
         />
 
-        <div className="relative">
+        <div
+          className="relative"
+          onMouseEnter={() => setProfileDropdownVisible(true)}
+          onMouseLeave={() => setProfileDropdownVisible(false)}
+        >
           <img
-            onClick={toggleProfileDropdown}
             src={assets.profile_icon}
             className="w-5 cursor-pointer dark:invert hover:opacity-75 transition-opacity"
             alt="Profile"

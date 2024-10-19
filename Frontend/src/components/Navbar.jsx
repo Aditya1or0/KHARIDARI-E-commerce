@@ -32,7 +32,7 @@ const Navbar = () => {
 
   const handleAdminClick = () => {
     if (adminUrl) {
-      window.open(`${adminUrl}/admin`, "_blank");
+      window.open(`https://kharidari-admin.vercel.app/`, "_blank");
     }
   };
 

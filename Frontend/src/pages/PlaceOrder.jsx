@@ -304,7 +304,7 @@ const PlaceOrder = () => {
                   method === "razorpay" ? "bg-green-400" : ""
                 }`}
               ></p>
-              <img className="h-5 mx-4" src={assets.razorpay_logo} alt="" />
+              <img className="h-5 mx-4 dark:invert" src={assets.razorpay_logo} alt="" />
             </div>
             <div
               onClick={() => setMethod("cod")}

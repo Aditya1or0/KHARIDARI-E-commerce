@@ -22,24 +22,21 @@ connectCloudinary();
 
 // CORS Configuration
 const allowedOrigins = [
-  "http://localhost:5173", // Local development
-  "https://kharidari-frontend.vercel.app/", // Your Vercel domain
-  "https://kharidari-admin.vercel.app/",
+  'http://localhost:5173', // Local development
+  'https://kharidari-frontend.vercel.app', // Your Vercel frontend domain
 ];
 
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-        callback(null, origin);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    credentials: true, // If you need to support credentials (cookies, authorization headers)
-  })
-);
+app.use(cors({
+  origin: (origin, callback) => {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, origin);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true,
+}));
 
 // Middlewares
 app.use(express.json());

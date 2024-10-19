@@ -42,7 +42,7 @@ const Navbar = ({ darkMode, toggleDarkMode, setToken }) => {
             </button>
           )}
         <a
-          href={import.meta.env.VITE_FRONTEND_URL}
+          href="https://kharidari-frontend.vercel.app"
           rel="noopener noreferrer"
           className="rounded-full text-xs sm:text-sm"
         >

@@ -5,9 +5,6 @@ import { assets } from "../assets/assets";
 import { ShopContext } from "../context/ShopContext";
 import { toast } from "react-toastify";
 import axios from "axios";
-// import dotenv from "dotenv";
-
-// dotenv.config();
 
 const PlaceOrder = () => {
   const [method, setMethod] = useState("cod");
@@ -318,7 +315,7 @@ const PlaceOrder = () => {
                   method === "cod" ? "bg-green-400" : ""
                 }`}
               ></p>
-              <p className="text-gray-500 text-sm font-medium mx-4">
+              <p className="text-gray-500 text-sm font-medium mx-4 dark:text-gray-300">
                 Cash On Delivery
               </p>
             </div>

@@ -1,13 +1,16 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import { assets } from "../assets/assets";
 import { Link, NavLink } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 import { FaSun, FaMoon } from "react-icons/fa";
+import { toast } from "react-toastify"; 
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [profileDropdownVisible, setProfileDropdownVisible] = useState(false);
+  const dropdownRef = useRef(null);
+
   const {
     setShowSearch,
     getCartCount,
@@ -27,7 +30,21 @@ const Navbar = () => {
     setAdminUrl(import.meta.env.VITE_ADMIN_URL || "");
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setProfileDropdownVisible(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownRef]);
+
   const handleAdminClick = () => {
+    setProfileDropdownVisible(false); // Close dropdown
     if (adminUrl) {
       window.open(`https://kharidari-admin.vercel.app/`, "_blank");
     }
@@ -42,12 +59,13 @@ const Navbar = () => {
     });
   };
 
-  const logout = () => {
+  const handleLogout = () => {
     localStorage.removeItem("token");
     setToken("");
     setCartItems({});
+    toast.success("Logged out successfully!"); // Toast for logout
     navigate("/login");
-    setProfileDropdownVisible(false);
+    setProfileDropdownVisible(false); // Close dropdown
   };
 
   return (
@@ -93,15 +111,12 @@ const Navbar = () => {
           alt="Search"
         />
 
-        <div
-          className="relative"
-          onMouseEnter={() => setProfileDropdownVisible(true)}
-          onMouseLeave={() => setProfileDropdownVisible(false)}
-        >
+        <div className="relative" ref={dropdownRef}>
           <img
             src={assets.profile_icon}
             className="w-5 cursor-pointer dark:invert hover:opacity-75 transition-opacity"
             alt="Profile"
+            onClick={() => setProfileDropdownVisible((prev) => !prev)} // Toggle on click
           />
           {profileDropdownVisible && (
             <div className="absolute right-0 pt-4 z-10">
@@ -121,13 +136,16 @@ const Navbar = () => {
                     </p>
                     <p
                       className="cursor-pointer hover:text-black dark:hover:text-white transition-colors"
-                      onClick={() => navigate("/orders")}
+                      onClick={() => {
+                        navigate("/orders");
+                        setProfileDropdownVisible(false); // Close dropdown
+                      }}
                     >
                       Orders
                     </p>
                     <p
                       className="cursor-pointer hover:text-black dark:hover:text-white transition-colors"
-                      onClick={logout}
+                      onClick={handleLogout}
                     >
                       Logout
                     </p>
@@ -135,7 +153,10 @@ const Navbar = () => {
                 ) : (
                   <p
                     className="cursor-pointer hover:text-black dark:hover:text-white transition-colors text-center"
-                    onClick={() => navigate("/login")}
+                    onClick={() => {
+                      navigate("/login");
+                      setProfileDropdownVisible(false); // Close dropdown
+                    }}
                   >
                     Login
                   </p>

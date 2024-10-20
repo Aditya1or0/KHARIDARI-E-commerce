@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom"; // Import useLocation and useNavigate
+import { useLocation, useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { FaSun, FaMoon } from "react-icons/fa";
 import { MdLogout } from "react-icons/md";
@@ -10,7 +10,7 @@ const Navbar = ({ darkMode, toggleDarkMode, setToken }) => {
   const navigate = useNavigate();
 
   const isLoginPage = location.pathname === "/login";
-  const isAdminPage = location.pathname === "/admin";
+  const isAdminPanel = location.pathname === "/"; 
 
   const handleLogout = () => {
     setToken(""); // Clear the token
@@ -33,16 +33,16 @@ const Navbar = ({ darkMode, toggleDarkMode, setToken }) => {
           {darkMode ? <FaMoon /> : <FaSun />}
         </button>
         {!isLoginPage &&
-          !isAdminPage && ( // Only show the logout button if not on the login or admin page
+          !isAdminPanel && ( // Only show the logout button if not on login or admin panel
             <button
-              onClick={handleLogout} // Use the handleLogout function
+              onClick={handleLogout}
               className="rounded-full text-xs sm:text-sm"
             >
               <MdLogout className="w-5 h-5" />
             </button>
           )}
         <a
-          href="https://kharidari-frontend.vercel.app"
+          href={import.meta.env.VITE_FRONTEND_URL}
           rel="noopener noreferrer"
           className="rounded-full text-xs sm:text-sm"
         >

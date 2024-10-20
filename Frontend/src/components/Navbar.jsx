@@ -3,7 +3,7 @@ import { assets } from "../assets/assets";
 import { Link, NavLink } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 import { FaSun, FaMoon } from "react-icons/fa";
-import { toast } from "react-toastify"; 
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
@@ -151,15 +151,24 @@ const Navbar = () => {
                     </p>
                   </>
                 ) : (
-                  <p
-                    className="cursor-pointer hover:text-black dark:hover:text-white transition-colors text-center"
-                    onClick={() => {
-                      navigate("/login");
-                      setProfileDropdownVisible(false); // Close dropdown
-                    }}
-                  >
-                    Login
-                  </p>
+                  <>
+                    <p
+                      className="cursor-pointer hover:text-black dark:hover:text-white transition-colors text-center"
+                      onClick={() => {
+                        navigate("/login");
+                        setProfileDropdownVisible(false); // Close dropdown
+                      }}
+                    >
+                      Login
+                    </p>
+                    {/* Admin link below Login for non-logged in users */}
+                    <p
+                      className="cursor-pointer hover:text-black dark:hover:text-white transition-colors text-center"
+                      onClick={handleAdminClick}
+                    >
+                      Admin
+                    </p>
+                  </>
                 )}
               </div>
             </div>

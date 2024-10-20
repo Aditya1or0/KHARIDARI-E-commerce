@@ -22,6 +22,7 @@ const Login = () => {
         if (response.data.success) {
           setToken(response.data.token);
           localStorage.setItem("token", response.data.token);
+          toast.success("Registration successful!"); // Toast for registration
         } else {
           toast.error(response.data.message);
         }
@@ -30,10 +31,10 @@ const Login = () => {
           email,
           password,
         });
-        console.log(response.data);
         if (response.data.success) {
           setToken(response.data.token);
           localStorage.setItem("token", response.data.token);
+          toast.success("Logged in successfully!"); // Toast for login success
         } else {
           toast.error(response.data.message);
         }
@@ -90,7 +91,7 @@ const Login = () => {
         placeholder="Password"
         required
       />
-      <div className="w-full flex   justify-between text-sm mt-[-8px]">
+      <div className="w-full flex justify-between text-sm mt-[-8px]">
         <p className="cursor-pointer dark:text-gray-400">
           Forget your password?
         </p>

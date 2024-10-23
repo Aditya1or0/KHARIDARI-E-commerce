@@ -73,7 +73,7 @@ const Navbar = () => {
       <Link to="/" className="flex-shrink-0">
         <img
           src={assets.logo_kha}
-          className="w-32 sm:w-40 md:w-48 lg:w-56 dark:invert"
+          className="w-36 sm:w-44 md:w-48 lg:w-56 dark:invert"
           alt="Logo"
         />
       </Link>

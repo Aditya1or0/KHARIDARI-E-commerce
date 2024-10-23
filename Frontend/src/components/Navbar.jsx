@@ -96,7 +96,7 @@ const Navbar = () => {
         ))}
       </ul>
 
-      <div className="flex items-center gap-4 md:gap-6">
+      <div className="flex items-center gap-2 md:gap-6">
         <button
           className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
           onClick={toggleDarkMode}

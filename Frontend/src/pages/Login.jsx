@@ -92,8 +92,8 @@ const Login = () => {
         required
       />
       <div className="w-full flex justify-between text-sm mt-[-8px]">
-        <p className="cursor-pointer dark:text-gray-400">
-          Forget your password?
+       <p className="cursor-pointer dark:text-gray-400">
+          {currentState === "Login" ? "Forgot Password?" : ""}
         </p>
         {currentState === "Login" ? (
           <p

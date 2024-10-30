@@ -11,12 +11,13 @@ const NewsLetterBox = () => {
   return (
     <div className="text-center">
       <p className="text-2xl font-medium text-gray-800 dark:text-gray-300">
-        Subscribe Now & get 30% off
+        Subscribe Now for Instant Notifications!
       </p>
       <p className="text-gray-600 dark:text-gray-400 mt-3">
-        Unlock exclusive perks with our subscription service—enjoy monthly
-        surprises delivered to your door! Sign up today for special offers and
-        early access to new arrivals!
+        Stay ahead of the game with our subscription service—get fast
+        notifications on new arrivals, exclusive deals, and special events
+        delivered straight to your inbox. Don't miss out on the latest trends
+        and offers! Sign up today and be the first to know!
       </p>
       <form
         onSubmit={onSubmitHandler}

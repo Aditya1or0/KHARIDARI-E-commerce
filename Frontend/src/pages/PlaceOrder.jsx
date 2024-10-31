@@ -56,8 +56,8 @@ const PlaceOrder = () => {
             { headers: { token } }
           );
           if (data.success) {
-            navigate("/orders");
-            setCartItems({});
+            // navigate("/orders");
+            // setCartItems({});
           }
         } catch (error) {
           console.log(error);
@@ -74,8 +74,9 @@ const PlaceOrder = () => {
         color: "#F37254",
       },
     };
-    const rzp = new window.Razorpay(options);
-    rzp.open();
+    // const rzp = new window.Razorpay(options);
+    toast.info("feature is disabled in demo mode");
+    // rzp.open();
   };
 
   const onSubmitHandler = async (e) => {

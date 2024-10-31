@@ -58,6 +58,7 @@ const PlaceOrder = () => {
           if (data.success) {
             // navigate("/orders");
             // setCartItems({});
+            toast.info("feature is disabled in demo mode");
           }
         } catch (error) {
           console.log(error);
@@ -75,7 +76,7 @@ const PlaceOrder = () => {
       },
     };
     // const rzp = new window.Razorpay(options);
-    toast.info("feature is disabled in demo mode");
+    
     // rzp.open();
   };
 

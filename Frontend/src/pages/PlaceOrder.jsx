@@ -76,7 +76,7 @@ const PlaceOrder = () => {
       },
     };
     // const rzp = new window.Razorpay(options);
-    
+    toast.info("feature is disabled in demo mode");
     // rzp.open();
   };
 

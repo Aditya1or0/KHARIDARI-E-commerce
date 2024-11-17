@@ -1,4 +1,6 @@
 import p_img1 from "./p_img1.png";
+import p_img_1 from "./p_img.png";
+import p_img_2_1 from "./img2.jpeg";
 import p_img2_1 from "./p_img2_1.png";
 import p_img2_2 from "./p_img2_2.png";
 import p_img2_3 from "./p_img2_3.png";
@@ -97,6 +99,32 @@ export const assets = {
 };
 
 export const products = [
+   {
+    _id: "aaaa0",
+    name: "Men Round Neck Pure Cotton T-shirt",
+    description:
+      "A lightweight, rounded collar Blue tshirt for summer wear. Light weight fabric is easy to move around. ",
+    price: 600,
+    image: [p_img_2_1],
+    category: "Men",
+    subCategory: "Topwear",
+    sizes: ["M", "L", "XL"],
+    date: 1716621345448,
+    bestseller: true,
+  },
+  {
+    _id: "aaaa1",
+    name: "Men Round Neck Pure Cotton T-shirt",
+    description:
+      "Gym tshirt for summer wear. Light weight fabric is easy to move around. ",
+    price: 400,
+    image: [p_img_1],
+    category: "Men",
+    subCategory: "Topwear",
+    sizes: ["M", "L", "XL"],
+    date: 1716621345448,
+    bestseller: true,
+  },
   {
     _id: "aaaaa",
     name: "Women Round Neck Cotton Top",

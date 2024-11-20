@@ -50,6 +50,10 @@ KHARIDARI is a fully functional e-commerce website for clothing, providing a sea
 
 4. Admin Panel: If you're an admin, log in using the admin credentials to manage the inventory and orders.
 
+## Deployment
+
+This project is deployed using [Vercel](https://vercel.com/) for the front end and for the back end. You can access the live application here:  
+[BgRemover Live Demo](https://kharidari-frontend.vercel.app/)
 
 ## Contributing
 1. Fork the repository.

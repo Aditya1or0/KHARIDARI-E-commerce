@@ -1,15 +1,12 @@
-import p_img1 from "./p_img1.png";
-import p_img_1 from "./p_img.png";
-import p_img_2_1 from "./img2.jpeg";
-import p_img2_1 from "./p_img2_1.png";
+import p_img_2_1 from "./p_img2.webp";
 import p_img2_2 from "./p_img2_2.png";
 import p_img2_3 from "./p_img2_3.png";
 import p_img2_4 from "./p_img2_4.png";
-import p_img3 from "./p_img3.png";
-import p_img4 from "./p_img4.png";
+import p_img3 from "./p_img3.webp";
+import p_img4 from "./p_img4.webp";
 import p_img5 from "./p_img5.png";
 import p_img6 from "./p_img6.png";
-import p_img7 from "./p_img7.png";
+import p_img7 from "./p_img7.webp";
 import p_img8 from "./p_img8.png";
 import p_img9 from "./p_img9.png";
 import p_img10 from "./p_img10.png";
@@ -32,9 +29,9 @@ import p_img26 from "./p_img26.png";
 import p_img27 from "./p_img27.png";
 import p_img28 from "./p_img28.png";
 import p_img29 from "./p_img29.png";
-import p_img30 from "./p_img30.png";
+import p_img30 from "./p_img30.webp";
 import p_img31 from "./p_img31.png";
-import p_img32 from "./p_img32.png";
+import p_img32 from "./p_img32.webp";
 import p_img33 from "./p_img33.png";
 import p_img34 from "./p_img34.png";
 import p_img35 from "./p_img35.png";
@@ -57,7 +54,8 @@ import p_img51 from "./p_img51.png";
 import p_img52 from "./p_img52.png";
 
 import logo_kha from "./logo_kha.png";
-import hero_img from "./hero_img.jpg";
+
+import hero from "./hero_img.jpg";
 import cart_icon from "./cart_icon.png";
 import bin_icon from "./bin_icon.png";
 import dropdown_icon from "./dropdown_icon.png";
@@ -70,6 +68,7 @@ import star_icon from "./star_icon.png";
 import support_img from "./support_img.png";
 import menu_icon from "./menu_icon.png";
 import about_img from "./about_img.jpg";
+
 import contactus from "./contactus.jpg";
 import razorpay_logo from "./razorpay_logo.png";
 import stripe_logo from "./stripe_logo.png";
@@ -77,7 +76,8 @@ import cross_icon from "./cross_icon.png";
 
 export const assets = {
   logo_kha,
-  hero_img,
+
+  hero,
   cart_icon,
   dropdown_icon,
   exchange_icon,
@@ -91,13 +91,14 @@ export const assets = {
   menu_icon,
   about_img,
   contactus,
+
   razorpay_logo,
   stripe_logo,
   cross_icon,
 };
 
 export const products = [
-   {
+  {
     _id: "aaaa0",
     name: "Men Round Neck Pure Cotton T-shirt",
     description:
@@ -115,8 +116,8 @@ export const products = [
     name: "Men Round Neck Pure Cotton T-shirt",
     description:
       "Gym tshirt for summer wear. Light weight fabric is easy to move around. ",
-    price: 400,
-    image: [p_img_1],
+    price: 300,
+    image: [p_img10],
     category: "Men",
     subCategory: "Topwear",
     sizes: ["M", "L", "XL"],
@@ -129,7 +130,7 @@ export const products = [
     description:
       "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
     price: 100,
-    image: [p_img1],
+    image: [p_img18],
     category: "Women",
     subCategory: "Topwear",
     sizes: ["S", "M", "L"],
@@ -142,7 +143,7 @@ export const products = [
     description:
       "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
     price: 200,
-    image: [p_img2_1, p_img2_2, p_img2_3, p_img2_4],
+    image: [p_img_2_1, p_img2_2, p_img2_3, p_img2_4],
     category: "Men",
     subCategory: "Topwear",
     sizes: ["M", "L", "XL"],

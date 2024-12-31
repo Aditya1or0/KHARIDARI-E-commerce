@@ -243,14 +243,14 @@ const updateStatus = async (req, res) => {
 };
 
 const cleanupPendingOrders = async () => {
-  const thirtyMinutesAgo = new Date(Date.now() - 30 * 60 * 1000);
+  const oneMinuteAgo = new Date(Date.now() - 1 * 60 * 1000);
   await orderModel.deleteMany({
     status: "Pending",
-    date: { $lt: thirtyMinutesAgo },
+    date: { $lt: oneMinuteAgo },
   });
 };
 
-setInterval(cleanupPendingOrders, 60 * 60 * 1000);
+setInterval(cleanupPendingOrders, 60 * 1000);
 
 export {
   verifyStripe,

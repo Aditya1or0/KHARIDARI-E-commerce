@@ -20,7 +20,6 @@ import Verify from "./pages/Verify";
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
 
-  // Check localStorage for dark mode preference and apply the class if found
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
@@ -42,8 +41,8 @@ const App = () => {
 
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] bg-white dark:bg-gray-900 text-black dark:text-white">
-      <ToastContainer theme="dark"/>
-      {/* Navbar will include the Dark Mode toggle button */}
+      <ToastContainer theme="dark" position="bottom-right" />
+
       <Navbar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
       <SearchBar />
 

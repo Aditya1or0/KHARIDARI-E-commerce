@@ -47,8 +47,6 @@ const PlaceOrder = () => {
       receipt: order.receipt,
       handler: async (response) => {
         console.log("Payment successful:", response);
-        navigate("/orders");
-        setCartItems({});
         try {
           const { data } = await axios.post(
             backendUrl + "/api/order/verifyRazorpay",
@@ -56,9 +54,11 @@ const PlaceOrder = () => {
             { headers: { token } }
           );
           if (data.success) {
-            // navigate("/orders");
-            // setCartItems({});
-            toast.info("feature is disabled in demo mode");
+            setCartItems({});
+            navigate("/orders");
+            toast.success("Order placed successfully!");
+          } else {
+            toast.error(data.message || "Payment verification failed");
           }
         } catch (error) {
           console.log(error);
@@ -75,15 +75,13 @@ const PlaceOrder = () => {
         color: "#F37254",
       },
     };
-    // const rzp = new window.Razorpay(options);
-    toast.info("feature is disabled in demo mode");
-    // rzp.open();
+    const rzp = new window.Razorpay(options);
+    rzp.open();
   };
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
 
-    // Guard clause to prevent double submissions
     if (!cartItems || Object.keys(cartItems).length === 0) {
       toast.error("Your cart is empty.");
       return;
@@ -111,18 +109,22 @@ const PlaceOrder = () => {
         address: formData,
         items: orderItems,
         amount: getCartAmount() + delivery_fee,
-        paymentMethod: method, // Include the selected payment method
+        paymentMethod: method,
       };
 
       let response;
       switch (method) {
         case "cod":
-          // Handle COD order
           response = await axios.post(
             backendUrl + "/api/order/placeorder",
             orderData,
             { headers: { token } }
           );
+          if (response.data.success) {
+            setCartItems({});
+            navigate("/orders");
+            toast.success("Order placed successfully with COD!");
+          }
           break;
 
         case "stripe":
@@ -133,7 +135,6 @@ const PlaceOrder = () => {
           );
           if (response.data.success) {
             window.location.replace(response.data.session_url);
-            return; // Exit the function after redirect
           } else {
             toast.error(response.data.message);
           }
@@ -147,8 +148,6 @@ const PlaceOrder = () => {
           );
           if (response.data.success) {
             initPay(response.data.order);
-
-            return; // Exit the function after initializing payment
           } else {
             toast.error(response.data.message);
           }
@@ -159,19 +158,8 @@ const PlaceOrder = () => {
           return;
       }
 
-      // Check the response for COD
-      if (response && response.data.success) {
-        setCartItems({});
-        navigate("/orders");
-        toast.success(
-          method === "cod"
-            ? "Order placed successfully with COD!"
-            : "Order placed successfully!"
-        );
-      } else {
-        toast.error(
-          response ? response.data.message : "Order processing failed."
-        );
+      if (!response.data.success) {
+        toast.error(response.data.message || "Order processing failed.");
       }
     } catch (error) {
       console.log(error);
@@ -306,7 +294,11 @@ const PlaceOrder = () => {
                   method === "razorpay" ? "bg-green-400" : ""
                 }`}
               ></p>
-              <img className="h-5 mx-4 dark:invert" src={assets.razorpay_logo} alt="" />
+              <img
+                className="h-5 mx-4 dark:invert"
+                src={assets.razorpay_logo}
+                alt=""
+              />
             </div>
             <div
               onClick={() => setMethod("cod")}

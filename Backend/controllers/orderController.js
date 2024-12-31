@@ -5,7 +5,6 @@ dotenv.config();
 import Stripe from "stripe";
 import Razorpay from "razorpay";
 
-// Global variables
 const currency = "inr";
 const deliveryCharge = 10;
 
@@ -66,11 +65,12 @@ const placeOrderStripe = async (req, res) => {
       amount,
       paymentMethod: "Stripe",
       payment: false,
+      paymentStatus: "Pending",
+      status: "Pending",
       date: Date.now(),
     });
 
     const newOrder = await order.save();
-    await userModel.findByIdAndUpdate(userId, { cartData: {} });
 
     const line_items = items.map((item) => ({
       price_data: {
@@ -110,14 +110,22 @@ const placeOrderStripe = async (req, res) => {
 
 // Verify Stripe
 const verifyStripe = async (req, res) => {
-  const { orderId, success, userId } = req.body;
+  const { orderId, success } = req.body;
   try {
     if (success === "true") {
-      await orderModel.findByIdAndUpdate(orderId, { payment: true });
-      await userModel.findByIdAndUpdate(userId, { cartData: {} });
+      await orderModel.findByIdAndUpdate(orderId, {
+        payment: true,
+        paymentStatus: "Completed",
+        status: "Order Placed",
+      });
+      const order = await orderModel.findById(orderId);
+      await userModel.findByIdAndUpdate(order.userId, { cartData: {} });
       res.json({ success: true, message: "Order placed successfully" });
     } else {
-      await orderModel.findByIdAndDelete(orderId);
+      await orderModel.findByIdAndUpdate(orderId, {
+        paymentStatus: "Failed",
+        status: "Payment Failed",
+      });
       res.json({ success: false, message: "Payment failed" });
     }
   } catch (error) {
@@ -128,7 +136,7 @@ const verifyStripe = async (req, res) => {
 
 // Verify Razorpay
 const verifyRazorpay = async (req, res) => {
-  const { userId, razorpay_order_id } = req.body;
+  const { razorpay_order_id } = req.body;
 
   // Check if razorpay_order_id is provided
   if (!razorpay_order_id) {
@@ -141,10 +149,19 @@ const verifyRazorpay = async (req, res) => {
     const orderInfo = await razorpayInstance.orders.fetch(razorpay_order_id);
 
     if (orderInfo.status === "paid") {
-      await orderModel.findByIdAndUpdate(orderInfo.receipt, { payment: true });
-      await userModel.findByIdAndUpdate(userId, { cartData: {} });
+      await orderModel.findByIdAndUpdate(orderInfo.receipt, {
+        payment: true,
+        paymentStatus: "Completed",
+        status: "Order Placed",
+      });
+      const order = await orderModel.findById(orderInfo.receipt);
+      await userModel.findByIdAndUpdate(order.userId, { cartData: {} });
       res.json({ success: true, message: "Order placed successfully" });
     } else {
+      await orderModel.findByIdAndUpdate(orderInfo.receipt, {
+        paymentStatus: "Failed",
+        status: "Payment Failed",
+      });
       res.json({ success: false, message: "Payment failed" });
     }
   } catch (error) {
@@ -165,6 +182,8 @@ const placeOrderRazorpay = async (req, res) => {
       amount,
       paymentMethod: "Razorpay",
       payment: false,
+      paymentStatus: "Pending",
+      status: "Pending",
       date: Date.now(),
     });
 
@@ -222,6 +241,16 @@ const updateStatus = async (req, res) => {
     res.json({ success: false, message: error.message });
   }
 };
+
+const cleanupPendingOrders = async () => {
+  const thirtyMinutesAgo = new Date(Date.now() - 30 * 60 * 1000);
+  await orderModel.deleteMany({
+    status: "Pending",
+    date: { $lt: thirtyMinutesAgo },
+  });
+};
+
+setInterval(cleanupPendingOrders, 60 * 60 * 1000);
 
 export {
   verifyStripe,

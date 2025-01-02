@@ -44,7 +44,8 @@ const Navbar = () => {
   }, [dropdownRef]);
 
   const handleAdminClick = () => {
-    setProfileDropdownVisible(false); // Close dropdown
+    setProfileDropdownVisible(false);
+    dropdown;
     if (adminUrl) {
       window.open(`https://kharidari-admin.vercel.app/`, "_blank");
     }
@@ -63,9 +64,9 @@ const Navbar = () => {
     localStorage.removeItem("token");
     setToken("");
     setCartItems({});
-    toast.success("Logged out successfully!"); // Toast for logout
+    toast.success("Logged out successfully!");
     navigate("/login");
-    setProfileDropdownVisible(false); // Close dropdown
+    setProfileDropdownVisible(false);
   };
 
   return (
@@ -75,6 +76,8 @@ const Navbar = () => {
           src={assets.logo_kha}
           className="w-36 sm:w-44 md:w-48 lg:w-56 dark:invert"
           alt="Logo"
+          width="224"
+          height="62"
         />
       </Link>
 

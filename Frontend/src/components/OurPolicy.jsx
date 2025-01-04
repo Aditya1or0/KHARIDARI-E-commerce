@@ -12,7 +12,7 @@ const OurPolicy = () => {
           width="48"
           height="48"
         />
-        <p className="font-semibold dark:text-gray-600">Easy Exchange</p>
+        <p className="font-semibold dark:text-gray-300">Easy Exchange</p>
         <p className="text-gray-400">
           We offer hassle-free Exchange Policy for our customers
         </p>
@@ -26,7 +26,7 @@ const OurPolicy = () => {
           width="48"
           height="48"
         />
-        <p className="font-semibold dark:text-gray-600">
+        <p className="font-semibold dark:text-gray-300">
           15 Days Return Policy
         </p>
         <p className="text-gray-400">We provide 15 days return Policy</p>
@@ -40,7 +40,7 @@ const OurPolicy = () => {
           width="48"
           height="48"
         />
-        <p className="font-semibold dark:text-gray-600">
+        <p className="font-semibold dark:text-gray-300">
           Best Customer Support
         </p>
         <p className="text-gray-400">We provide 24/7 Customer Support</p>

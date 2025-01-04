@@ -14,7 +14,7 @@ const Footer = () => {
           </p>
         </div>
         <div>
-          <p className="text-xl font-medium mb-5 dark:text-gray-300">COMPANY</p>
+          <p className="text-xl font-medium mb-5 dark:text-gray-200">COMPANY</p>
           <ul className="flex flex-col gap-1 text-gray-600 dark:text-gray-400">
             <li>Home</li>
             <li>About Us</li>
@@ -23,7 +23,7 @@ const Footer = () => {
           </ul>
         </div>
         <div>
-          <p className="text-xl font-medium mb-5 dark:text-gray-300">
+          <p className="text-xl font-medium mb-5 dark:text-gray-200">
             GET IN TOUCH
           </p>
           <ul className="flex flex-col gap-1 text-gray-600 dark:text-gray-400">
@@ -35,7 +35,21 @@ const Footer = () => {
       <div>
         <hr />
         <p className="py-5 text-center dark:text-gray-400">
-          Copyright 2024 @Kharidari.com ~All Right Reserved
+          <span className="font-semibold text-gray-600 dark:text-gray-400">
+            Copyright &copy; 2024{" "}
+          </span>
+          <a
+            href="https://kharidari.com"
+            className="text-blue-400 hover:text-blue-500"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            kharidari.com {""}
+          </a>
+          ~ All Rights Reserved
+        </p>
+        <p className="text-xs text-center mt-1  text-gray-500">
+          Powered by Kharidari
         </p>
       </div>
     </div>

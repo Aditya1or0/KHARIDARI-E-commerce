@@ -174,7 +174,7 @@ const Collection = () => {
             <Title text1={"ALL"} text2={" COLLECTIONS"} />
             {/* Sort Options */}
             <select
-              className="border-2 border-gray-300 text-sm px-2 py-1 w-full max-w-xs dark:text-gray-300 dark:bg-[#111827] dark:border-gray-400"
+              className="border-2 border-gray-300 text-sm px-2 py-1 w-full max-w-xs dark:text-gray-300 dark:bg-[#121212] dark:border-gray-400"
               onChange={(e) => setSortType(e.target.value)}
             >
               <option value="relevent">Sort by: Relevant</option>

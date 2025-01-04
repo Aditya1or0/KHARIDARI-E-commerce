@@ -16,7 +16,7 @@ const Contact = () => {
           alt=""
         />
         <div className="flex flex-col justify-center items-start gap-6">
-          <p className="font-semibold text-xl text-gray-600 dark:text-gray-300">
+          <p className="font-semibold text-xl text-gray-600 dark:text-gray-200">
             Our Store
           </p>
           <p className="text-gray-500 dark:text-gray-400">
@@ -26,7 +26,7 @@ const Contact = () => {
           <p className="text-gray-500 dark:text-gray-400">
             Tel: (91) 8740002009 <br /> Email: admin@kharidari.com
           </p>
-          <p className="font-semibold text-xl text-gray-600 dark:text-gray-300">
+          <p className="font-semibold text-xl text-gray-600 dark:text-gray-200">
             Careers at KHARIDARI
           </p>
           <p className="text-gray-500 dark:text-gray-400">

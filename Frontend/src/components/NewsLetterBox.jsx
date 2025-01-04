@@ -10,7 +10,7 @@ const NewsLetterBox = () => {
 
   return (
     <div className="text-center">
-      <p className="text-2xl font-medium text-gray-800 dark:text-gray-300">
+      <p className="text-2xl font-medium text-gray-800 dark:text-gray-200">
         Subscribe Now for Instant Notifications!
       </p>
       <p className="text-gray-600 dark:text-gray-400 mt-3">

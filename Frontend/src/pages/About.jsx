@@ -25,7 +25,7 @@ const About = () => {
             When you shop with us, you're not just updating your wardrobe—you're
             supporting a community that values integrity and style.
           </p>
-          <b className="text-gray-700 dark:text-gray-300">Our Mission</b>
+          <b className="text-gray-700 dark:text-gray-200">Our Mission</b>
           <p className="dark:text-gray-300">
             {" "}
             Our mission at Kharidari is to empower individuals through fashion.

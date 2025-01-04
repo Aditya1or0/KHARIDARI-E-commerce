@@ -123,7 +123,7 @@ const Navbar = () => {
           />
           {profileDropdownVisible && (
             <div className="absolute right-0 pt-4 z-10">
-              <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-white text-gray-500 rounded shadow-lg dark:bg-gray-800 dark:text-gray-300">
+              <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-white text-gray-500 rounded shadow-lg dark:bg-[#222] dark:text-gray-300">
                 {token && (
                   <p className="text-center text-gray-700 dark:text-gray-300">
                     Welcome!
@@ -209,14 +209,14 @@ const Navbar = () => {
       )}
 
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-white dark:bg-gray-800 transition-transform duration-300 ease-in-out z-50 ${
+        className={`fixed top-0 right-0 h-full w-64 bg-white dark:bg-[#222] transition-transform duration-300 ease-in-out z-50 ${
           visible ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex flex-col text-gray-600 dark:text-gray-300 h-full">
           <div
             onClick={() => setVisible(false)}
-            className="flex items-center gap-4 p-4 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            className="flex items-center gap-4 p-4 cursor-pointer hover:bg-gray-100 dark:hover:bg-[#333] transition-colors"
           >
             <img
               src={assets.dropdown_icon}
@@ -230,14 +230,14 @@ const Navbar = () => {
               key={item}
               onClick={() => setVisible(false)}
               to={item === "HOME" ? "/" : `/${item.toLowerCase()}`}
-              className="py-3 px-6 border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+              className="py-3 px-6 border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-[#333] transition-colors"
             >
               {item}
             </NavLink>
           ))}
           <Link
             to="/cart"
-            className="py-3 px-6 border-b dark:border-gray-600 flex items-center hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            className="py-3 px-6 border-b dark:border-gray-600 flex items-center hover:bg-gray-100 dark:hover:bg-[#333] transition-colors"
             onClick={() => setVisible(false)}
           >
             <img

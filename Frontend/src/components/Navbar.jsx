@@ -45,7 +45,7 @@ const Navbar = () => {
 
   const handleAdminClick = () => {
     setProfileDropdownVisible(false);
-    dropdown;
+
     if (adminUrl) {
       window.open(`https://kharidari-admin.vercel.app/`, "_blank");
     }

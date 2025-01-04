@@ -197,7 +197,7 @@ const AddComponent = ({ token }) => {
           >
             <p
               className={`${
-                sizes.includes("S") ? "bg-pink-100" : "bg-slate-200"
+                sizes.includes("S") ? "bg-sky-200" : "bg-slate-200"
               } px-3 py-2 cursor-pointer`}
             >
               S
@@ -214,7 +214,7 @@ const AddComponent = ({ token }) => {
           >
             <p
               className={`${
-                sizes.includes("M") ? "bg-pink-100" : "bg-slate-200"
+                sizes.includes("M") ? "bg-sky-200" : "bg-slate-200"
               } px-3 py-2 cursor-pointer`}
             >
               M
@@ -231,7 +231,7 @@ const AddComponent = ({ token }) => {
           >
             <p
               className={`${
-                sizes.includes("L") ? "bg-pink-100" : "bg-slate-200"
+                sizes.includes("L") ? "bg-sky-200" : "bg-slate-200"
               } px-3 py-2 cursor-pointer`}
             >
               L
@@ -248,7 +248,7 @@ const AddComponent = ({ token }) => {
           >
             <p
               className={`${
-                sizes.includes("XL") ? "bg-pink-100" : "bg-slate-200"
+                sizes.includes("XL") ? "bg-sky-200" : "bg-slate-200"
               } px-3 py-2 cursor-pointer`}
             >
               XL
@@ -272,7 +272,10 @@ const AddComponent = ({ token }) => {
         </label>
       </div>
 
-      <button type="submit" className="w-28 py-3 mt-4 bg-black text-white">
+      <button
+        type="submit"
+        className="w-28 py-3 mt-4 bg-black text-white hover:bg-[#3a3a3a]"
+      >
         ADD
       </button>
     </form>

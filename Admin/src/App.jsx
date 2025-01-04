@@ -43,8 +43,8 @@ const App = () => {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen dark:bg-gray-900 dark:text-white">
-      <ToastContainer theme="dark" />
+    <div className="bg-gray-50 min-h-screen dark:bg-[#121212] dark:text-white">
+      <ToastContainer theme="dark" position="bottom-right" autoClose={1500} />
       <Navbar
         darkMode={darkMode}
         toggleDarkMode={toggleDarkMode}

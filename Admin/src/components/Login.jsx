@@ -34,107 +34,98 @@ const Login = ({ setToken }) => {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col justify-center items-center bg-gray-50 dark:bg-gray-900 p-4">
+    <div className="flex justify-center items-center h-[80vh] m-auto  w-[90%] sm:max-w-96 mt-14 gap-4 text-gray-800 ">
       <div className="w-full max-w-md">
         {/* Logo Section */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
-            Admin Portal
+        <div className="flex items-center gap-2 mb-2 mt-10 ">
+          <h1 className="prata-regular text-3xl dark:text-gray-200 text-center">
+            Admin Login
           </h1>
-          <p className="mt-2 text-gray-600 dark:text-gray-400">
-            Sign in to your account
-          </p>
+          <hr className="border-none h-[1.5px] w-8 bg-gray-800 dark:bg-gray-300" />
         </div>
 
         {/* Login Card */}
-        <div className="bg-white dark:bg-gray-800 shadow-xl rounded-lg px-8 py-10">
-          <form onSubmit={onSubmitHandler} className="space-y-6">
-            {/* Email Field */}
-            <div className="space-y-2">
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300"
-              >
-                Email Address
-              </label>
-              <div className="mt-1">
-                <input
-                  id="email"
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 
-                           focus:ring-2 focus:ring-blue-500 focus:border-blue-500 
-                           dark:bg-gray-700 dark:text-white transition-colors
-                           placeholder-gray-400 dark:placeholder-gray-500"
-                  placeholder="your@email.com"
-                />
-              </div>
-            </div>
 
-            {/* Password Field */}
-            <div className="space-y-2">
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300"
-              >
-                Password
-              </label>
-              <div className="mt-1">
-                <input
-                  id="password"
-                  type="password"
-                  required
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 
-                           focus:ring-2 focus:ring-blue-500 focus:border-blue-500 
-                           dark:bg-gray-700 dark:text-white transition-colors
-                           placeholder-gray-400 dark:placeholder-gray-500"
-                  placeholder="Enter your password"
-                />
-              </div>
+        <form onSubmit={onSubmitHandler} className="space-y-6">
+          {/* Email Field */}
+          <div className="space-y-2">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+            >
+              Email Address
+            </label>
+            <div className="mt-1">
+              <input
+                id="email"
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-3 py-2 border border-gray-800"
+                placeholder="your@email.com"
+              />
             </div>
+          </div>
 
-            {/* Submit Button */}
-            <div className="pt-2">
-              <button
-                type="submit"
-                disabled={isLoading}
-                className={`w-full py-3 px-4 text-white bg-black rounded-lg
+          {/* Password Field */}
+          <div className="space-y-2">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+            >
+              Password
+            </label>
+            <div className="mt-1">
+              <input
+                id="password"
+                type="password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full px-3 py-2 border border-gray-800"
+                placeholder="Enter your password"
+              />
+            </div>
+          </div>
+
+          {/* Submit Button */}
+          <div className="pt-2">
+            <button
+              type="submit"
+              disabled={isLoading}
+              className={`w-full py-3 px-4 text-white bg-black rounded-lg
                           hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 
-                          dark:bg-black dark:hover:bg-gray-700
+                          dark:bg-black dark:hover:bg-[#333] dark:focus:ring-gray-800
                           transition-all duration-200 flex justify-center items-center
                           ${isLoading ? "opacity-75 cursor-not-allowed" : ""}`}
-              >
-                {isLoading ? (
-                  <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                ) : (
-                  "Sign In"
-                )}
-              </button>
-            </div>
-          </form>
-
-          {/* Additional Links */}
-          <div className="mt-6 text-center text-sm">
-            <a
-              href="#"
-              className="text-gray-800 hover:text-blue-500 dark:text-gray-400 dark:hover:text-gray-300"
-              onClick={(e) => {
-                e.preventDefault();
-                toast.info(
-                  "Please contact your administrator for password reset."
-                );
-              }}
             >
-              Forgot your password?
-            </a>
+              {isLoading ? (
+                <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+              ) : (
+                "Sign In"
+              )}
+            </button>
           </div>
+        </form>
+
+        {/* Additional Links */}
+        <div className="mt-6 text-center text-sm">
+          <a
+            href="#"
+            className="text-gray-800 hover:text-blue-500 dark:text-gray-300 dark:hover:text-gray-300"
+            onClick={(e) => {
+              e.preventDefault();
+              toast.info(
+                "Please contact your administrator for password reset."
+              );
+            }}
+          >
+            Forgot your password?
+          </a>
         </div>
 
-        <div className="mt-8 text-center text-sm text-gray-600 dark:text-gray-400">
+        <div className="mt-8 text-center text-sm text-gray-600 dark:text-gray-300">
           Need help? Contact admin@kharidari.com
         </div>
       </div>

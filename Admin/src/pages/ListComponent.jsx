@@ -72,7 +72,7 @@ const ListComponent = ({ token }) => {
             </p>
             <p
               onClick={() => removeProduct(item._id)}
-              className="text-right  md:text-center cursor-pointer text-lg"
+              className="text-right  text-red-600 md:text-center cursor-pointer text-lg"
             >
               X
             </p>

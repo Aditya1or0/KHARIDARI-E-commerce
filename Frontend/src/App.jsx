@@ -16,6 +16,7 @@ import SearchBar from "./components/SearchBar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Verify from "./pages/Verify";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -42,9 +43,10 @@ const App = () => {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] bg-white dark:bg-[#121212] text-black dark:text-white">
       <ToastContainer theme="dark" position="bottom-left" autoClose={2000} />
-
       <Navbar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
       <SearchBar />
+
+      <ScrollToTop />
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -54,11 +56,11 @@ const App = () => {
         <Route path="/product/:productId" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
-
         <Route path="/place-order" element={<PlaceOrder />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/verify" element={<Verify />} />
       </Routes>
+
       <Footer />
     </div>
   );

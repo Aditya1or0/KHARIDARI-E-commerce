@@ -86,7 +86,7 @@ const Product = () => {
               addToCart(productData._id, size);
               navigate("/cart");
             }}
-            className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700"
+            className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700 hover:bg-[#222]"
           >
             ADD TO CART
           </button>

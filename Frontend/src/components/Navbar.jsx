@@ -187,7 +187,7 @@ const Navbar = () => {
             className="w-5 dark:invert hover:opacity-75 transition-opacity"
             alt="Cart"
           />
-          <span className="absolute -bottom-1 -right-1 bg-black text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
+          <span className="absolute -bottom-1 -right-1 bg-red-600 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
             {getCartCount()}
           </span>
         </Link>

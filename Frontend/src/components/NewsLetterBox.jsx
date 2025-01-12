@@ -31,7 +31,7 @@ const NewsLetterBox = () => {
         />
         <button
           type="submit"
-          className="bg-black dark:bg-white text-white dark:text-black text-xs px-10 py-4 hover:bg-[#333] dark:hover:bg-[#e3e0e0] transition-colors duration-200"
+          className="bg-black dark:bg-white text-white dark:text-black text-xs px-10 py-4 hover:bg-[#333] dark:hover:bg-gray-300  font-medium transition-colors duration-200"
         >
           Subscribe
         </button>

@@ -57,7 +57,7 @@ const Cart = () => {
                       {productData.price}
                     </p>
                     <p
-                      className="px-2 sm:px-3 sm:py-1 border bg-slate-50 dark:text-white dark:bg-black 
+                      className="px-2 sm:px-3 sm:py-1 border bg-slate-50 dark:bg-gray-300 dark:text-black 
                     dark:border-gray-500"
                     >
                       {item.size}
@@ -76,7 +76,7 @@ const Cart = () => {
                         Number(e.target.value)
                       )
                 }
-                className="border max-w-[80px] sm:max-w-[100px] px-1 py-1 text-center dark:bg-black dark:text-gray-200 dark:border-gray-500"
+                className="border max-w-[80px] sm:max-w-[100px] px-1 py-1 text-center dark:bg-gray-200 dark:text-gray-800 dark:border-gray-500"
                 type="number"
                 min={1}
                 defaultValue={item.quantity}
@@ -100,7 +100,7 @@ const Cart = () => {
           <div className="w-full text-end">
             <button
               onClick={() => navigate("/place-order")}
-              className="bg-black hover:bg-[#222] text-white text-sm my-8 px-8 py-3"
+              className="bg-black dark:bg-white dark:text-black hover:bg-[#222] dark:hover:bg-gray-300 font-medium text-white text-sm my-8 px-8 py-3"
             >
               Proceed to Checkout
             </button>

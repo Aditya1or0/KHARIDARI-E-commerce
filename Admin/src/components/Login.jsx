@@ -96,7 +96,7 @@ const Login = ({ setToken }) => {
               disabled={isLoading}
               className={`w-full py-3 px-4 text-white bg-black rounded-lg
                           hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 
-                          dark:bg-black dark:hover:bg-[#333] dark:focus:ring-gray-800
+                          dark:bg-[#222] dark:hover:bg-[#333] dark:focus:ring-gray-800
                           transition-all duration-200 flex justify-center items-center
                           ${isLoading ? "opacity-75 cursor-not-allowed" : ""}`}
             >

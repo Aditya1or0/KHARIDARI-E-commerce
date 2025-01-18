@@ -25,10 +25,8 @@ app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files (optional, if you have public assets)
-app.use(express.static(path.join(process.cwd(), "public"))); // Adjust as needed
+app.use(express.static(path.join(process.cwd(), "public")));
 
-// Favicon route to prevent 404 error
 app.get("/favicon.ico", (req, res) => res.status(204));
 
 // Root route
